@@ -10,32 +10,6 @@ class Telaalertas extends StatefulWidget{
   }
 }
 class _TelaAlertasState extends State<Telaalertas>{
-  List<String> mensagens = [];
-
-  void carregarVisitas(){
-    mensagens.clear();
-    for(Visita visita in gerenciamento.visitas){
-      Alertas alerta = Alertas(
-        visita.cidadao,
-        visita,
-      );
-      mensagens.add(alerta.verificarAlerta());
-    }
-  }
-
-  @override
-  void initState(){
-    super.initState();
-    carregarVisitas();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    setState(() {
-    carregarVisitas();
-  });
-}
 
   @override
   Widget build(BuildContext context){
@@ -43,11 +17,32 @@ class _TelaAlertasState extends State<Telaalertas>{
       appBar: AppBar(
         title: Text("Alertas"),
       ),
-      body: ListView.builder(itemCount: mensagens.length, itemBuilder: (context,index){
-        return ListTile(
-          title: Text(mensagens[index]),
+      body: ListView.builder(
+        itemCount: gerenciamento.visitas.length,
+        itemBuilder: (context, index) {
+
+        var visita = gerenciamento.visitas[index];
+
+        Alertas alerta = Alertas(
+          visita.cidadao,
+          visita,
         );
-      }),
+
+        return Card(
+        margin: EdgeInsets.all(8),
+
+        child: ListTile(
+        title: Text(visita.cidadao.nome),
+
+        subtitle: Text(
+           "CPF: ${visita.cidadao.cpf}\n\n"
+           "${alerta.verificarAlerta()}",
+        )
+        ),
+        );
+        },
+      ),
     );
   }
+
 }
