@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_saude/models/Alertas.dart';
-import 'package:sistema_saude/models/Visita.dart';
 import 'package:sistema_saude/models/dados.dart';
 
 class Telaalertas extends StatefulWidget{
