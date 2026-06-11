@@ -171,9 +171,6 @@ class _TelaListaCidadaoState extends State<Telalistacidadao> {
                           );
                         },
                       );
-                      setState(() {
-                        gerenciamento.cidadaos.remove(cidadao);
-                      });
                     },
                   ),
                 ],
