@@ -9,11 +9,11 @@ class Cidadao extends Pessoa{
           String datanasc,
           String sexo,
           this.endereco,
-          this.telefone) : super(cpf: cpf, nome: nome, datanasc: datanasc, sexo: sexo);
+          this.telefone) : super(cpf, nome, datanasc, sexo);
 
 
   int calcularidade(){
-    List<String> particao = datanasc.split('/');
+    List<String> particao = this.datanasc.split('/');
     int dia = int.parse(particao[0]);
     int mes = int.parse(particao[1]);
     int ano = int.parse(particao[2]);

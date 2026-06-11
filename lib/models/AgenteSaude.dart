@@ -6,14 +6,9 @@ class Agentesaude extends Pessoa{
 
   Agentesaude(String cpf, String nome,
               String datanasc, String sexo, 
-              this.matricula, this.territorio) : super(cpf: cpf, nome: nome, datanasc: datanasc, sexo: sexo);
+              this.matricula, this.territorio) : super(cpf, nome, datanasc, sexo);
 
-  @override
-  void exibirDados(){
-    super.exibirDados();
-    print(matricula);
-    print(territorio);
-  }
+
 
   @override
   String toString() {

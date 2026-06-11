@@ -13,12 +13,6 @@ class Gerenciamento {
     cidadaos.add(novoCidadao);
   }
 
-  void listarCidadaos(){
-    for(Cidadao cidadao in cidadaos){
-      cidadao.exibirDados();
-    }
-  }
-
   void adicionarAgente(Agentesaude novoAgente){
     agentes.add(novoAgente);
   }
