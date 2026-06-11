@@ -26,7 +26,7 @@ class _TelaListaCidadaoState extends State<Telalistacidadao> {
             child: ListTile(
               title: Text(cidadao.nome),
               subtitle: Text(
-                "CPF: ${cidadao.cpf}\n Telefone: ${cidadao.telefone}",
+                "CPF: ${cidadao.cpf}\nTelefone: ${cidadao.telefone}",
               ),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,

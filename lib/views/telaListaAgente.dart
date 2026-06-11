@@ -26,7 +26,7 @@ class _TelaListaAgenteState extends State<Telalistaagente> {
             child: ListTile(
               title: Text(agente.nome),
               subtitle: Text(
-                "Matricula: ${agente.matricula}\n Territorio: ${agente.territorio}",
+                "Matricula: ${agente.matricula}\nTerritorio: ${agente.territorio}",
               ),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
