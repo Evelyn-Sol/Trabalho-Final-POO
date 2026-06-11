@@ -36,4 +36,42 @@ class Cidadao extends Pessoa{
       print("Criança!");
     }
   }
+
+  @override
+  String toString() {
+    return "Cidadão: $nome | CPF: $cpf | Telefone: $telefone";
+  }
 }
+/*Exemplo em Dart Puro como se pega os dados pelo console
+
+print("Digite o CPF")
+String cpf = stdin.readLineSync!;
+
+print("Digite o Nome")
+String nome = stdin.readLineSync!;
+
+print("Digite a Data de Nascimento")
+String datanasc = stdin.readLineSync!;
+
+print("Digite o Sexo")
+String sexo = stdin.readLineSync!;
+
+print("Digite o Endereço")
+String endereco = stdin.readLineSync!;
+
+print("Digite o telefone")
+String telefone = stdin.readLineSync!;
+
+Cidadao novoCidadao = Cidadao(
+  cpf,
+  nome,
+  datanasc,
+  sexo,
+  endereco,
+  telefone
+);
+
+gerenciamento.adicionarCidadao(novoCidade);
+
+print("Cidadão cadastrado com sucesso!");
+*/

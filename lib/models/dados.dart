@@ -33,6 +33,9 @@ void instanciandoDados() {
   gerenciamento.adicionarCidadao(c1);
   gerenciamento.adicionarCidadao(c2);
   gerenciamento.adicionarCidadao(c3);
+  print(c1);
+  print(c2);
+  print(c3);
 
   Agentesaude a1 = Agentesaude(
     "013.014.015-16",
@@ -52,6 +55,8 @@ void instanciandoDados() {
   );
   gerenciamento.adicionarAgente(a1);
   gerenciamento.adicionarAgente(a2);
+  print(a1);
+  print(a2);
 
   Visita v1 = Visita(c1, a2, "10/06/2025", "Pressão arterial: 160/80");
   Visita v2 = Visita(c2, a1, "09/05/2026", "Vacinas em dia");
@@ -59,4 +64,7 @@ void instanciandoDados() {
   gerenciamento.registrarVisita(v1);
   gerenciamento.registrarVisita(v2);
   gerenciamento.registrarVisita(v3);
+  print(v1);
+  print(v2);
+  print(v3);
 }

@@ -14,4 +14,9 @@ class Agentesaude extends Pessoa{
     print(matricula);
     print(territorio);
   }
+
+  @override
+  String toString() {
+    return "Nome: $nome | Matricula: $matricula | Territorio: $territorio";
+  }
 }
