@@ -18,4 +18,9 @@ abstract class Pessoa{
   set datanasc(String valor) => _datanasc = valor;
   set sexo(String valor) => _sexo = valor;
 
+  @override
+  String toString(){
+    return "Nome: $nome | CPF: $cpf";
+  }
+
 }
