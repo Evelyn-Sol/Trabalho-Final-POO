@@ -96,6 +96,7 @@ class _TelaCadastroAgenteState extends State<Telacadastroagente> {
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               SizedBox(
                 width: double.infinity,
                 height: 50,
