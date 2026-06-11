@@ -43,3 +43,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flutter/Dart gerados
+.dart_tool/
+build/
+*.main.generated.dart
+
+# Arquivos de plugins gerados automaticamente
+**/android/app/src/main/java/io/flutter/plugins/
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/macos/Runner/GeneratedPluginRegistrant.*
+**/linux/flutter/generated_plugin_registrant.*
+**/windows/flutter/generated_plugin_registrant.*
