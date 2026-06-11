@@ -1,19 +1,4 @@
-# sistema_saude
+# Trabalho final da disciplina de Programação Orientada a Objetos.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Trabalho-Final-POO
-Trabalho final da disciplina de Programação Orientada a Objetos.
+## Oque foi Desenvolvido?
+    Foi desenvolvida uma interface intuitiva voltada para agentes de saúde, permitindo o cadastro eficiente de cidadãos e o gerenciamento de visitas domiciliares. O sistema possibilita o acompanhamento contínuo das atividades realizadas, além de contar com um mecanismo de emissão de alertas que auxilia na identificação de situações que exigem atenção, contribuindo para uma atuação mais organizada, preventiva e eficaz no atendimento à comunidade.

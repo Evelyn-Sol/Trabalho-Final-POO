@@ -5,6 +5,8 @@ import 'package:sistema_saude/models/Visita.dart';
 import 'package:sistema_saude/models/dados.dart';
 
 class Telaregistrovisita extends StatefulWidget {
+  const Telaregistrovisita({super.key});
+
   @override
   State<Telaregistrovisita> createState() {
     return _TelaRegistroVisitaState();

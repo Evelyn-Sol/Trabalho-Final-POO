@@ -3,6 +3,8 @@ import 'package:sistema_saude/models/AgenteSaude.dart';
 import 'package:sistema_saude/models/dados.dart';
 
 class Telacadastroagente extends StatefulWidget {
+  const Telacadastroagente({super.key});
+
   @override
   State<Telacadastroagente> createState() {
     return _TelaCadastroAgenteState();

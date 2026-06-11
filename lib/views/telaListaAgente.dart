@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sistema_saude/models/dados.dart';
 
 class Telalistaagente extends StatefulWidget {
+  const Telalistaagente({super.key});
+
   @override
   State<Telalistaagente> createState() {
     return _TelaListaAgenteState();

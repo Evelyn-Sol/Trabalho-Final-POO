@@ -3,6 +3,8 @@ import 'package:sistema_saude/models/Alertas.dart';
 import 'package:sistema_saude/models/dados.dart';
 
 class Telaalertas extends StatefulWidget {
+  const Telaalertas({super.key});
+
   @override
   State<Telaalertas> createState() {
     return _TelaAlertasState();

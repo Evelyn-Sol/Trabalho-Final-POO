@@ -8,6 +8,8 @@ import 'package:sistema_saude/views/telaListaVisita.dart';
 import 'package:sistema_saude/views/telaRegistroVisita.dart';
 
 class Telainicial extends StatelessWidget {
+  const Telainicial({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +24,8 @@ class Telainicial extends StatelessWidget {
           padding: EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Icon(Icons.local_hospital, size: 80, color: Colors.blue),
                 SizedBox(height: 10),
@@ -176,8 +180,6 @@ class Telainicial extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
               ],
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
             ),
           ),
         ),
