@@ -8,10 +8,10 @@ abstract class Pessoa{
     this._cpf, this._nome, this._datanasc, this._sexo,
 );
 
-  get cpf => _cpf;
-  get nome => _nome;
-  get datanasc => _datanasc;
-  get sexo => _sexo;
+  String get cpf => _cpf;
+  String get nome => _nome;
+  String get datanasc => _datanasc;
+  String get sexo => _sexo;
 
   set cpf(String valor) => _cpf = valor;
   set nome(String valor) => _nome = valor;
