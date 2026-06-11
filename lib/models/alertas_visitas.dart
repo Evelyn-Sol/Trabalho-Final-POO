@@ -1,5 +1,5 @@
-import 'package:sistema_saude/models/Cidadao.dart';
-import 'package:sistema_saude/models/Visita.dart';
+import 'package:sistema_saude/models/cidadao_cadastro_visita.dart';
+import 'package:sistema_saude/models/visita_agente.dart';
 
 class Alertas {
   Cidadao cidadao;

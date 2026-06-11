@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:sistema_saude/models/AgenteSaude.dart';
-import 'package:sistema_saude/models/dados.dart';
+import 'package:sistema_saude/models/cidadao_cadastro_visita.dart';
+import 'package:sistema_saude/models/dados_instanciados.dart';
 
-class Telacadastroagente extends StatefulWidget {
-  const Telacadastroagente({super.key});
+class Telacadastrocidadao extends StatefulWidget {
+  const Telacadastrocidadao({super.key});
 
   @override
-  State<Telacadastroagente> createState() {
-    return _TelaCadastroAgenteState();
+  State<Telacadastrocidadao> createState() {
+    return _TelaCadastroCidadaoState();
   }
 }
 
-class _TelaCadastroAgenteState extends State<Telacadastroagente> {
+class _TelaCadastroCidadaoState extends State<Telacadastrocidadao> {
   TextEditingController cpfController = TextEditingController();
   TextEditingController nomeController = TextEditingController();
   TextEditingController dataNascimentoController = TextEditingController();
   TextEditingController sexoController = TextEditingController();
-  TextEditingController matriculaController = TextEditingController();
-  TextEditingController territorioController = TextEditingController();
+  TextEditingController enderecoController = TextEditingController();
+  TextEditingController telefoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cadastro Agente"),
-        backgroundColor: Colors.green,
+        title: Text("Cadastro Cidadão"),
+        backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -78,10 +78,10 @@ class _TelaCadastroAgenteState extends State<Telacadastroagente> {
               ),
               SizedBox(height: 15),
               TextField(
-                controller: matriculaController,
+                controller: enderecoController,
                 decoration: InputDecoration(
-                  labelText: "Matricula",
-                  prefixIcon: Icon(Icons.badge),
+                  labelText: "Endereço",
+                  prefixIcon: Icon(Icons.home),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -89,10 +89,10 @@ class _TelaCadastroAgenteState extends State<Telacadastroagente> {
               ),
               SizedBox(height: 15),
               TextField(
-                controller: territorioController,
+                controller: telefoneController,
                 decoration: InputDecoration(
-                  labelText: "Territorio",
-                  prefixIcon: Icon(Icons.map),
+                  labelText: "Telefone",
+                  prefixIcon: Icon(Icons.phone),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -108,20 +108,21 @@ class _TelaCadastroAgenteState extends State<Telacadastroagente> {
                     foregroundColor: Colors.white,
                   ),
                   onPressed: () {
-                    Agentesaude novoAgente = Agentesaude(
+                    Cidadao novoCidadao = Cidadao(
                       cpfController.text,
                       nomeController.text,
                       dataNascimentoController.text,
                       sexoController.text,
-                      matriculaController.text,
-                      int.parse(territorioController.text),
+                      enderecoController.text,
+                      telefoneController.text,
                     );
-                    int? territorio = int.tryParse(territorioController.text);
-                    if (territorio == null) {
+                    if (cpfController.text.isEmpty ||
+                        nomeController.text.isEmpty ||
+                        dataNascimentoController.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(
-                            "Digite um terrotório válido!\nUtilize números inteiros!\n",
+                            "Campos vazios, preencha corretamente!",
                           ),
                         ),
                       );
@@ -133,37 +134,26 @@ class _TelaCadastroAgenteState extends State<Telacadastroagente> {
                       );
                       return;
                     }
-                    if (cpfController.text.isEmpty ||
-                        nomeController.text.isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            "Campos vazios, preencha corretamente!",
-                          ),
-                        ),
-                      );
-                      return;
-                    }
-                    if (gerenciamento.buscarAgentePorMatricula(
-                          matriculaController.text,
-                        ) !=
+                    if (gerenciamento.buscarCidadaoPorCpf(cpfController.text) !=
                         null) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Matricula já cadastrada!")),
+                        SnackBar(content: Text("Cidadão já cadastrado!")),
                       );
                       return;
                     }
-                    gerenciamento.adicionarAgente(novoAgente);
+                    gerenciamento.adicionarCidadao(novoCidadao);
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Agente cadastrado com sucesso!')),
+                      SnackBar(
+                        content: Text('Cidadão cadastrado com sucesso!'),
+                      ),
                     );
 
                     cpfController.clear();
                     nomeController.clear();
                     dataNascimentoController.clear();
                     sexoController.clear();
-                    matriculaController.clear();
-                    territorioController.clear();
+                    enderecoController.clear();
+                    telefoneController.clear();
                   },
                   icon: Icon(Icons.save, size: 40, color: Colors.white),
                   label: Text("Salvar"),

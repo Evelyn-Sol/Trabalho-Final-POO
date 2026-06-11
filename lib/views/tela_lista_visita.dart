@@ -1,100 +1,82 @@
 import 'package:flutter/material.dart';
-import 'package:sistema_saude/models/dados.dart';
+import 'package:sistema_saude/models/dados_instanciados.dart';
 
-class Telalistaagente extends StatefulWidget {
-  const Telalistaagente({super.key});
+class Telalistavisita extends StatefulWidget {
+  const Telalistavisita({super.key});
 
   @override
-  State<Telalistaagente> createState() {
-    return _TelaListaAgenteState();
+  State<Telalistavisita> createState() {
+    return _TelaListaVisitaState();
   }
 }
 
-class _TelaListaAgenteState extends State<Telalistaagente> {
+class _TelaListaVisitaState extends State<Telalistavisita> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Lista de agentes"),
-        backgroundColor: Colors.green,
+        title: Text("Lista de visitas"),
+        backgroundColor: Colors.purple,
         foregroundColor: Colors.white,
       ),
       body: ListView.builder(
-        itemCount: gerenciamento.agentes.length,
+        itemCount: gerenciamento.visitas.length,
         itemBuilder: (context, index) {
-          var agente = gerenciamento.agentes[index];
+          var visitas = gerenciamento.visitas[index];
           return Card(
             margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             child: ListTile(
-              title: Text(agente.nome),
+              title: Text("Nome Cidadão: ${visitas.cidadao.nome}\n"),
               subtitle: Text(
-                "Matricula: ${agente.matricula}\nTerritorio: ${agente.territorio}",
+                "CPF do Cidadão: ${visitas.cidadao.cpf}\nNome do Agente: ${visitas.agente.nome}\nMatricula do Agente: ${visitas.agente.matricula}\nTerritorio do Agente: ${visitas.agente.territorio}\nData da Visita: ${visitas.dataVisita}\nObservação: ${visitas.observacao}",
               ),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
                     onPressed: () {
-                      TextEditingController nomeController =
-                          TextEditingController(text: agente.nome);
+                      TextEditingController cpfController =
+                          TextEditingController(text: visitas.cidadao.cpf);
 
                       TextEditingController matriculaController =
-                          TextEditingController(text: agente.matricula);
+                          TextEditingController(text: visitas.agente.matricula);
 
-                      TextEditingController territorioController =
-                          TextEditingController(
-                            text: agente.territorio.toString(),
-                          );
+                      TextEditingController dataController =
+                          TextEditingController(text: visitas.dataVisita);
 
-                      TextEditingController cpfController =
-                          TextEditingController(text: agente.cpf);
-
-                      TextEditingController sexoController =
-                          TextEditingController(text: agente.sexo);
-
-                      TextEditingController dataNascimentoController =
-                          TextEditingController(text: agente.datanasc);
+                      TextEditingController observacaoController =
+                          TextEditingController(text: visitas.observacao);
 
                       showDialog(
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text("Editar Agente"),
+                            title: Text("Editar Visita"),
                             content: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 TextField(
-                                  controller: nomeController,
-                                  decoration: InputDecoration(
-                                    labelText: "Nome",
-                                  ),
-                                ),
-                                TextField(
                                   controller: cpfController,
-                                  decoration: InputDecoration(labelText: "CPF"),
-                                ),
-                                TextField(
-                                  controller: dataNascimentoController,
                                   decoration: InputDecoration(
-                                    labelText: "Data de Nascimento",
-                                  ),
-                                ),
-                                TextField(
-                                  controller: sexoController,
-                                  decoration: InputDecoration(
-                                    labelText: "Sexo",
+                                    labelText: "CPF Cidadão",
                                   ),
                                 ),
                                 TextField(
                                   controller: matriculaController,
                                   decoration: InputDecoration(
-                                    labelText: "Matricula",
+                                    labelText: "Matricula do Agente",
                                   ),
                                 ),
                                 TextField(
-                                  controller: territorioController,
+                                  controller: dataController,
                                   decoration: InputDecoration(
-                                    labelText: "Território",
+                                    labelText: "Data da Visita",
+                                  ),
+                                ),
+                                TextField(
+                                  controller: observacaoController,
+                                  decoration: InputDecoration(
+                                    labelText: "Observação",
                                   ),
                                 ),
                               ],
@@ -109,15 +91,12 @@ class _TelaListaAgenteState extends State<Telalistaagente> {
                               TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    agente.nome = nomeController.text;
-                                    agente.cpf = cpfController.text;
-                                    agente.datanasc =
-                                        dataNascimentoController.text;
-                                    agente.sexo = sexoController.text;
-                                    agente.matricula = matriculaController.text;
-                                    agente.territorio = int.parse(
-                                      territorioController.text,
-                                    );
+                                    visitas.cidadao.cpf = cpfController.text;
+                                    visitas.agente.matricula =
+                                        matriculaController.text;
+                                    visitas.dataVisita = dataController.text;
+                                    visitas.observacao =
+                                        observacaoController.text;
                                   });
                                 },
                                 child: Text("Salvar"),
@@ -147,7 +126,7 @@ class _TelaListaAgenteState extends State<Telalistaagente> {
                               TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    gerenciamento.agentes.remove(agente);
+                                    gerenciamento.visitas.remove(visitas);
                                   });
                                 },
                                 child: Text("Excluir"),

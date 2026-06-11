@@ -1,4 +1,4 @@
-import 'package:sistema_saude/models/Pessoa.dart';
+import 'package:sistema_saude/models/pessoas_superclasse.dart';
 
 class Cidadao extends Pessoa{
   String endereco;

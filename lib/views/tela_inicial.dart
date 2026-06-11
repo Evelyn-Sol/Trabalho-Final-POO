@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sistema_saude/views/telaCadastroAgente.dart';
-import 'package:sistema_saude/views/telaCadastroCidadao.dart';
-import 'package:sistema_saude/views/telaAlertas.dart';
-import 'package:sistema_saude/views/telaListaAgente.dart';
-import 'package:sistema_saude/views/telaListaCidadao.dart';
-import 'package:sistema_saude/views/telaListaVisita.dart';
-import 'package:sistema_saude/views/telaRegistroVisita.dart';
+import 'package:sistema_saude/views/tela_cadastro_agente.dart';
+import 'package:sistema_saude/views/tela_cadastro_cidadao.dart';
+import 'package:sistema_saude/views/tela_alertas.dart';
+import 'package:sistema_saude/views/tela_lista_agente.dart';
+import 'package:sistema_saude/views/tela_lista_cidadao.dart';
+import 'package:sistema_saude/views/tela_lista_visita.dart';
+import 'package:sistema_saude/views/tela_registro_visita.dart';
 
 class Telainicial extends StatelessWidget {
   const Telainicial({super.key});

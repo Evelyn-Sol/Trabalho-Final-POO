@@ -1,120 +1,104 @@
 import 'package:flutter/material.dart';
-import 'package:sistema_saude/models/dados.dart';
+import 'package:sistema_saude/models/dados_instanciados.dart';
 
-class Telalistacidadao extends StatefulWidget {
-  const Telalistacidadao({super.key});
+class Telalistaagente extends StatefulWidget {
+  const Telalistaagente({super.key});
 
   @override
-  State<Telalistacidadao> createState() {
-    return _TelaListaCidadaoState();
+  State<Telalistaagente> createState() {
+    return _TelaListaAgenteState();
   }
 }
 
-class _TelaListaCidadaoState extends State<Telalistacidadao> {
+class _TelaListaAgenteState extends State<Telalistaagente> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Lista de cidadãos"),
-        backgroundColor: Colors.blue,
+        title: Text("Lista de agentes"),
+        backgroundColor: Colors.green,
         foregroundColor: Colors.white,
       ),
       body: ListView.builder(
-        itemCount: gerenciamento.cidadaos.length,
+        itemCount: gerenciamento.agentes.length,
         itemBuilder: (context, index) {
-          var cidadao = gerenciamento.cidadaos[index];
+          var agente = gerenciamento.agentes[index];
           return Card(
             margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             child: ListTile(
-              title: Text(cidadao.nome),
+              title: Text(agente.nome),
               subtitle: Text(
-                "CPF: ${cidadao.cpf}\nTelefone: ${cidadao.telefone}",
+                "Matricula: ${agente.matricula}\nTerritorio: ${agente.territorio}",
               ),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.edit),
                     onPressed: () {
-                      TextEditingController cpfController =
-                          TextEditingController(text: cidadao.cpf);
-
                       TextEditingController nomeController =
-                          TextEditingController(text: cidadao.nome);
+                          TextEditingController(text: agente.nome);
 
-                      TextEditingController dataNascimentoController =
-                          TextEditingController(text: cidadao.datanasc);
+                      TextEditingController matriculaController =
+                          TextEditingController(text: agente.matricula);
+
+                      TextEditingController territorioController =
+                          TextEditingController(
+                            text: agente.territorio.toString(),
+                          );
+
+                      TextEditingController cpfController =
+                          TextEditingController(text: agente.cpf);
 
                       TextEditingController sexoController =
-                          TextEditingController(text: cidadao.sexo);
+                          TextEditingController(text: agente.sexo);
 
-                      TextEditingController telefoneController =
-                          TextEditingController(text: cidadao.telefone);
-
-                      TextEditingController enderecoController =
-                          TextEditingController(text: cidadao.endereco);
+                      TextEditingController dataNascimentoController =
+                          TextEditingController(text: agente.datanasc);
 
                       showDialog(
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text("Editar Cidadão"),
-
+                            title: Text("Editar Agente"),
                             content: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                TextField(
-                                  controller: cpfController,
-                                  decoration: InputDecoration(labelText: "CPF"),
-                                ),
-
-                                SizedBox(height: 15,),
-
                                 TextField(
                                   controller: nomeController,
                                   decoration: InputDecoration(
                                     labelText: "Nome",
                                   ),
                                 ),
-
-                                SizedBox(height: 15,),
-
+                                TextField(
+                                  controller: cpfController,
+                                  decoration: InputDecoration(labelText: "CPF"),
+                                ),
                                 TextField(
                                   controller: dataNascimentoController,
                                   decoration: InputDecoration(
                                     labelText: "Data de Nascimento",
                                   ),
                                 ),
-
-                                SizedBox(height: 15,),
-
                                 TextField(
                                   controller: sexoController,
                                   decoration: InputDecoration(
                                     labelText: "Sexo",
                                   ),
                                 ),
-
-                                SizedBox(height: 15,),
-
                                 TextField(
-                                  controller: telefoneController,
+                                  controller: matriculaController,
                                   decoration: InputDecoration(
-                                    labelText: "Telefone",
+                                    labelText: "Matricula",
                                   ),
                                 ),
-
-                                SizedBox(height: 15,),
-
                                 TextField(
-                                  controller: enderecoController,
+                                  controller: territorioController,
                                   decoration: InputDecoration(
-                                    labelText: "Endereço",
+                                    labelText: "Território",
                                   ),
                                 ),
                               ],
                             ),
-
                             actions: [
                               TextButton(
                                 onPressed: () {
@@ -122,19 +106,19 @@ class _TelaListaCidadaoState extends State<Telalistacidadao> {
                                 },
                                 child: Text("Cancelar"),
                               ),
-
                               TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    cidadao.cpf = cpfController.text;
-                                    cidadao.nome = nomeController.text;
-                                    cidadao.datanasc = dataNascimentoController.text;
-                                    cidadao.sexo = sexoController.text;
-                                    cidadao.telefone = telefoneController.text;
-                                    cidadao.endereco = enderecoController.text;
+                                    agente.nome = nomeController.text;
+                                    agente.cpf = cpfController.text;
+                                    agente.datanasc =
+                                        dataNascimentoController.text;
+                                    agente.sexo = sexoController.text;
+                                    agente.matricula = matriculaController.text;
+                                    agente.territorio = int.parse(
+                                      territorioController.text,
+                                    );
                                   });
-
-                                  Navigator.pop(context);
                                 },
                                 child: Text("Salvar"),
                               ),
@@ -143,10 +127,9 @@ class _TelaListaCidadaoState extends State<Telalistacidadao> {
                         },
                       );
                     },
+                    icon: Icon(Icons.edit),
                   ),
-
                   IconButton(
-                    icon: Icon(Icons.delete),
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -164,7 +147,7 @@ class _TelaListaCidadaoState extends State<Telalistacidadao> {
                               TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    gerenciamento.cidadaos.remove(cidadao);
+                                    gerenciamento.agentes.remove(agente);
                                   });
                                 },
                                 child: Text("Excluir"),
@@ -174,6 +157,7 @@ class _TelaListaCidadaoState extends State<Telalistacidadao> {
                         },
                       );
                     },
+                    icon: Icon(Icons.delete),
                   ),
                 ],
               ),

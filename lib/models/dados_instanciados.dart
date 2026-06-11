@@ -1,7 +1,7 @@
-import 'package:sistema_saude/models/AgenteSaude.dart';
-import 'package:sistema_saude/models/Cidadao.dart';
-import 'package:sistema_saude/models/Gerenciamento.dart';
-import 'package:sistema_saude/models/Visita.dart';
+import 'package:sistema_saude/models/agente_saude.dart';
+import 'package:sistema_saude/models/cidadao_cadastro_visita.dart';
+import 'package:sistema_saude/models/gerenciamento_do_sistema.dart';
+import 'package:sistema_saude/models/visita_agente.dart';
 
 Gerenciamento gerenciamento = Gerenciamento();
 
