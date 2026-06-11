@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sistema_saude/models/dados.dart';
 import 'package:sistema_saude/views/telainicial.dart';
 
 void main() {
+  instanciandoDados();
   runApp(const MyApp());
 }
 
