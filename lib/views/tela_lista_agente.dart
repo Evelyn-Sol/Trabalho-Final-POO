@@ -147,7 +147,7 @@ class _TelaListaAgenteState extends State<Telalistaagente> {
                               TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    gerenciamento.agentes.remove(agente);
+                                    gerenciamento.removerAgente(agente);
                                   });
                                 },
                                 child: Text("Excluir"),

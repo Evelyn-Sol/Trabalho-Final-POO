@@ -164,7 +164,7 @@ class _TelaListaCidadaoState extends State<Telalistacidadao> {
                               TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    gerenciamento.cidadaos.remove(cidadao);
+                                    gerenciamento.removerCidadao(cidadao);
                                   });
                                 },
                                 child: Text("Excluir"),

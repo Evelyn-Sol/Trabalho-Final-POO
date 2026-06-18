@@ -126,7 +126,7 @@ class _TelaListaVisitaState extends State<Telalistavisita> {
                               TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    gerenciamento.visitas.remove(visitas);
+                                    gerenciamento.removerVisita(visitas);
                                   });
                                 },
                                 child: Text("Excluir"),

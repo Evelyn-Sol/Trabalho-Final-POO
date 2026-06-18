@@ -2,14 +2,20 @@ import 'package:sistema_saude/models/cidadao_cadastro_visita.dart';
 import 'package:sistema_saude/models/visita_agente.dart';
 
 class Alertas {
-  Cidadao cidadao;
-  Visita datadaVisita;
-  Alertas(this.cidadao, this.datadaVisita);
+  Cidadao _cidadao;
+  Visita _datadaVisita;
+  Alertas(this._cidadao, this._datadaVisita);
+
+  Cidadao get cidadao => _cidadao;
+  set cidadao(Cidadao valor) => _cidadao = valor;
+
+  Visita get datadaVisita => _datadaVisita;
+  set datadaVisita(Visita valor) => _datadaVisita = valor;
 
   String verificarAlerta(){
     String mensagem = '';
-    int idade = cidadao.calcularidade();
-    String data = datadaVisita.dataVisita;
+    int idade = _cidadao.calcularidade();
+    String data = _datadaVisita.dataVisita;
     if(idade >= 60 || idade < 10){
       mensagem += "Cidadão Prioritário!\n";
     }

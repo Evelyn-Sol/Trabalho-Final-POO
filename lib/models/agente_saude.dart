@@ -1,14 +1,15 @@
 import 'package:sistema_saude/models/pessoas_superclasse.dart';
 
 class Agentesaude extends Pessoa{
-  String matricula;
-  int territorio;
+  String _matricula;
+  int _territorio;
+  Agentesaude(super.cpf, super.nome, super.datanasc, super.sexo, this._matricula, this._territorio);
 
-  Agentesaude(String cpf, String nome,
-              String datanasc, String sexo, 
-              this.matricula, this.territorio) : super(cpf, nome, datanasc, sexo);
+  String get matricula => _matricula;
+  set matricula(String valor) => _matricula = valor;
 
-
+  int get territorio => _territorio;
+  set territorio(int valor) => _territorio = valor;
 
   @override
   String toString() {

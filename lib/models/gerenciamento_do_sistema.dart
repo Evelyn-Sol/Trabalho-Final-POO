@@ -4,25 +4,42 @@ import 'package:sistema_saude/models/cidadao_cadastro_visita.dart';
 import 'package:sistema_saude/models/visita_agente.dart';
 
 class Gerenciamento {
-  List<Cidadao> cidadaos = [];
-  List<Agentesaude> agentes = [];
-  List<Visita> visitas = [];
-  List<Alertas> alerta = [];
+  final List<Cidadao> _cidadaos = [];
+  final List<Agentesaude> _agentes = [];
+  final List<Visita> _visitas = [];
+  final List<Alertas> _alerta = [];
+
+  List<Cidadao> get cidadaos => _cidadaos;
+  List<Agentesaude> get agentes => _agentes;
+  List<Visita> get visitas => _visitas;
+  List<Alertas> get alerta => _alerta;
 
   void adicionarCidadao(Cidadao novoCidadao){
-    cidadaos.add(novoCidadao);
+    _cidadaos.add(novoCidadao);
   }
 
   void adicionarAgente(Agentesaude novoAgente){
-    agentes.add(novoAgente);
+    _agentes.add(novoAgente);
   }
 
   void registrarVisita(Visita novaVisita){
-    visitas.add(novaVisita);
+    _visitas.add(novaVisita);
+  }
+
+  void removerCidadao(Cidadao cidadao){
+    _cidadaos.remove(cidadao);
+  }
+
+  void removerAgente(Agentesaude agente){
+    _agentes.remove(agente);
+  }
+
+  void removerVisita(Visita visita){
+    _visitas.remove(visita);
   }
 
   Cidadao? buscarCidadaoPorCpf(String cpf){
-  for(Cidadao cidadao in cidadaos){
+  for(Cidadao cidadao in _cidadaos){
     if(cidadao.cpf == cpf){
       return cidadao;
     }
@@ -31,7 +48,7 @@ class Gerenciamento {
 }
 
 Agentesaude? buscarAgentePorMatricula(String matricula){
-  for(Agentesaude agente in agentes){
+  for(Agentesaude agente in _agentes){
     if(agente.matricula == matricula){
       return agente;
     }

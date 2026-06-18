@@ -1,19 +1,19 @@
 import 'package:sistema_saude/models/pessoas_superclasse.dart';
 
 class Cidadao extends Pessoa{
-  String endereco;
-  String telefone;
+  String _endereco;
+  String _telefone;
+  
+  Cidadao(super.cpf, super.nome, super.datanasc, super.sexo, this._endereco, this._telefone);
+  
+  String get endereco => _endereco;
+  set endereco(String valor) => _endereco = valor;
 
-  Cidadao(String cpf,
-          String nome,
-          String datanasc,
-          String sexo,
-          this.endereco,
-          this.telefone) : super(cpf, nome, datanasc, sexo);
-
+  String get telefone => _telefone;
+  set telefone(String valor) => _telefone = valor;
 
   int calcularidade(){
-    List<String> particao = this.datanasc.split('/');
+    List<String> particao = datanasc.split('/');
     int dia = int.parse(particao[0]);
     int mes = int.parse(particao[1]);
     int ano = int.parse(particao[2]);
