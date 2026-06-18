@@ -10,7 +10,12 @@ class Cidadao extends Pessoa{
   set endereco(String valor) => _endereco = valor;
 
   String get telefone => _telefone;
-  set telefone(String valor) => _telefone = valor;
+  set telefone(String valor){
+    if(int.tryParse(valor) == null){
+      throw ArgumentError("Devem ser digitados apenas numeros!");
+    }
+    _telefone = valor;
+  }
 
   int calcularidade(){
     List<String> particao = datanasc.split('/');

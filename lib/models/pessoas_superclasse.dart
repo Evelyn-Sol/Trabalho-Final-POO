@@ -13,10 +13,31 @@ abstract class Pessoa{
   String get datanasc => _datanasc;
   String get sexo => _sexo;
 
-  set cpf(String valor) => _cpf = valor;
-  set nome(String valor) => _nome = valor;
-  set datanasc(String valor) => _datanasc = valor;
-  set sexo(String valor) => _sexo = valor;
+  set cpf(String valor) {
+    if(valor.trim().length < 11){
+      throw ArgumentError("CPF Inválido! Número de caracteres tem que ser até 11!");
+    }
+    _cpf = valor;
+  }
+  set nome(String valor){
+    if(valor.trim().isEmpty){
+      throw ArgumentError("Nome não pode ser campo vazio!");
+    }
+    _nome = valor;
+  }
+  set datanasc(String valor){
+    if(!valor.trim().contains("/")){
+      throw ArgumentError("Formato de data inválido, deve ser dd/mm/aaaa.");
+    }
+    _datanasc = valor;
+  }
+  set sexo(String valor){
+    String formato = valor.toUpperCase();
+    if(formato != "FEMININO" && formato != "MASCULINO" && formato != "M" && formato != "F"){
+      throw ArgumentError("Sexo inválido! Insira por extenso, Masculino ou Feminino, ou apenas M ou F!");
+    }
+    _sexo = valor;
+  }
 
   @override
   String toString(){
